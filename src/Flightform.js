@@ -23,7 +23,7 @@ const Flightform = (props) => {
     }
     const onclick = async () => {
         props.progress(30)
-        const response = await fetch('https://flightpriceserver.onrender.com/api/auth', {
+        const response = await fetch('https://flightprices-vt58.onrender.com/api/auth/prices', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -8,7 +8,7 @@ const LogIn = (props) => {
     const handleclick = async (e) => {
         e.preventDefault();
         const { email, password } = credentials;
-        const response = await fetch('https://flightpriceserver.onrender.com/api/auth/login', {
+        const response = await fetch('https://flightprices-vt58.onrender.com/api/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -18,6 +18,7 @@ const LogIn = (props) => {
         const json = await response.json();
         localStorage.setItem('price', json.authToken);
         props.closemodal();
+        window.location.reload();
     }
     return (
         <div>

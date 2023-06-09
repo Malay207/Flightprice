@@ -5,9 +5,10 @@ const SignUp = (props) => {
     const onChange = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
     }
-    const onSubmit = async () => {
+    const onSubmit = async (e) => {
+        e.preventDefault();
         const { name, email, password } = credentials;
-        const response = await fetch('https://flightpriceserver.onrender.com/api/auth/createuser', {
+        const response = await fetch('https://flightprices-vt58.onrender.com/api/auth/createuser', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -18,6 +19,7 @@ const SignUp = (props) => {
         const json = await response.json();
         localStorage.setItem('price', json.authToken);
         props.closemodal();
+        window.location.reload();
 
     }
     return (
